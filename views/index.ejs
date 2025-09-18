@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #f5f5f5;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+      }
+      form {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+      input[type="url"] {
+        flex: 1;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        padding: 10px 14px;
+        font-size: 1rem;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      .result {
+        margin-top: 10px;
+        padding: 12px;
+        background: #f0f0f0;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+      .result a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      .result a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form method="POST" action="/">
+        <input type="url" name="url" placeholder="Enter URL here..." required />
+        <button type="submit">Shorten</button>
+      </form>
+
+      <% if (alias) { %>
+      <div class="result">
+        Your short link:
+        <a target="_blank" href="http://localhost:3030/<%= alias %>">
+          http://localhost:3030/<%= alias %>
+        </a>
+      </div>
+      <% } %>
+    </div>
+  </body>
+</html>
